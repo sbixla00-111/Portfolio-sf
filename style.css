@@ -37,6 +37,18 @@ header p {
   font-size: 1.2rem;
 }
 
+/* Profile Picture Styling */
+.profile-pic {
+    width: 160px; /* Size of the circle */
+    height: 160px;
+    border-radius: 50%; /* Makes it perfectly circular */
+    object-fit: cover; /* Ensures the photo isn't stretched */
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 5px solid #ffbb00; /* Gold border accent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds depth */
+}
+
 /* Button Styling (Used for "Contact Me") */
 .btn {
   display: inline-block;
@@ -85,6 +97,33 @@ h2 {
   box-shadow: 0 1px 5px rgba(0,0,0,0.1);
 }
 
+/* PDF/Live Link Button Styling */
+.proof-link-btn {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #004aad; /* Dark Blue */
+    color: #fff !important; /* Ensure the text is white */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.proof-link-btn:hover {
+    background: #002e6b; /* Darker blue on hover */
+}
+
+/* Styling for Facebook/Live Links (Optional color change) */
+.facebook-btn {
+    background: #4267B2; /* Facebook Blue */
+}
+
+.facebook-btn:hover {
+    background: #3b5998; /* Darker Facebook Blue on hover */
+}
+
+
 /* List Styling (for general lists) */
 ul {
   list-style-type: none;
@@ -122,13 +161,68 @@ footer {
   text-align: center;
   padding: 1rem 0;
   margin-top: 2rem;
+}
+
+
+/* === INTERACTIVE FLYING CAT STYLING === */
+
+/* Cat Container (for positioning) */
+#pixelCatContainer {
+    position: fixed;
+    z-index: 1000; 
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+/* Specific styling for the Pixel Cat image */
+#pixelCat {
+    width: 120px; 
+    height: auto;
+    display: block;
+    /* Optional: Subtle flying effect (CSS only animation) */
+    animation: flyEffect 5s ease-in-out infinite alternate; 
+}
+
+/* Subtle flying effect (CSS only animation) */
+@keyframes flyEffect {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+/* Star Shower Container (initially hidden) */
+#starShowerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; 
+    overflow: hidden; 
+    z-index: 999; 
+}
+
+/* Individual Star Styling (created by JS) */
+.star {
+    position: absolute;
+    font-size: 1.5rem; 
+    color: #ffbb00; 
+    opacity: 0; 
+    transform: scale(0); 
+    animation: starFall 0.8s forwards; /* Faster star shower */
+}
+
+/* Star Animation */
+@keyframes starFall {
+    0% {
+        opacity: 0.5;
+        transform: translate(0, 0) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(0, -30px) scale(1.2); /* Burst up */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(50px, 100px) scale(0.1); /* Fall away */
+    }
   }
-
-/* Styling for Facebook/Live Links (Optional color change) */
-.facebook-btn {
-    background: #4267B2; /* Facebook Blue */
-}
-
-.facebook-btn:hover {
-    background: #3b5998; /* Darker Facebook Blue on hover */
-}
+      
