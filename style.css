@@ -1,23 +1,125 @@
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
+/* Smooth scrolling for better user experience when clicking internal links */
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* General Container for width control and centering */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+/* Header Styling */
 header {
-  background-color: #004aad;
-  color: white;
-  padding: 2rem;
+  background: #004aad; /* Dark Blue */
+  color: #fff;
+  padding: 4rem 0;
   text-align: center;
 }
 
-section {
+header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+}
+
+/* Button Styling (Used for "Contact Me") */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #ffbb00; /* Gold/Yellow accent */
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease; /* For smooth hover effect */
+}
+
+.btn:hover {
+  background: #e6a700; /* Slightly darker gold on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Section Styling (About, Projects, Experience, etc.) */
+.section {
+  margin: 2rem 0;
+  background: #fff;
   padding: 2rem;
-  margin: 1rem auto;
-  max-width: 800px;
-  background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
+h2 {
+  color: #004aad; /* Dark Blue heading color */
+  margin-bottom: 1rem;
+}
+
+/* Project Grid Layout (Responsive) */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Project Card Styling */
+.project-card {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+/* List Styling (for general lists) */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 0.5rem 0;
+}
+
+/* Enhanced List Styling for Experience and Education */
+.experience-list li,
+.education-list li {
+  border-left: 3px solid #ffbb00; /* Gold line accent */
+  padding-left: 15px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Contact Section Link Hover */
+.section a {
+    color: #004aad; /* Default link color */
+    text-decoration: none;
+}
+
+.section a:hover {
+    text-decoration: underline;
+    color: #002e6b; /* Darker blue on hover */
+}
+
+/* Footer Styling */
+footer {
+  background: #004aad;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  }
