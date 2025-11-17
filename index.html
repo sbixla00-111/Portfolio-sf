@@ -7,10 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <div id="pixelCatContainer">
+    <img id="pixelCat" src="images/pixel_safa_cat.gif" alt="Pixel Nyan Safa Cat"> 
+  </div>
+  <div id="starShowerContainer"></div>
   <header>
     <div class="container">
       <h1>Safa Elmzouak</h1>
       <p>Digital Marketer & Aspiring Game Developer</p>
+      
+      <img src="images/17633.jpg" alt="Safa Elmzouak Profile Photo" class="profile-pic"> 
+      
       <a href="#contact" class="btn">Contact Me</a>
     </div>
   </header>
@@ -58,7 +66,7 @@
         <div class="project-card">
           <h3>Association la Défi</h3>
           <p>Role: Social Media Manager</p>
-          </div>
+        </div>
 
         <div class="project-card">
           <h3>Jardin Magique</h3>
@@ -83,7 +91,7 @@
         <div class="project-card">
           <h3>Game Development Projects</h3>
           <p>Unity & C# Prototypes – Early projects exploring design</p>
-          <a href="https://raw.githubusercontent.com/sbixla00-111/Portfolio-sf/main/proofs/8f4f25_9c6a51c2a59146fb854a9614b5c2c493.pdf" 
+          <a href="https://raw.githubusercontent.com/sbixla00-111/Portfolio-sf/main/proofs/8f4f25_9c6a51c2a59146fb85a9614b5c2c493.pdf" 
              target="_blank" 
              class="proof-link-btn">
               View Proof (PDF)
@@ -139,6 +147,69 @@
       <p>&copy; 2025 Safa Elmzouak. All Rights Reserved.</p>
     </div>
   </footer>
+
+    <script>
+        const pixelCatContainer = document.getElementById('pixelCatContainer');
+        const starShowerContainer = document.getElementById('starShowerContainer');
+        const projectsSection = document.getElementById('projects');
+
+        let catY = window.innerHeight / 2; 
+        let catX = 50; 
+        let speed = 0.08; 
+        let starsTriggered = false; 
+
+        // Animate cat to follow the scroll position smoothly
+        function animateCat() {
+            const scrollY = window.scrollY;
+            const targetY = scrollY + window.innerHeight * 0.5; // Target is viewport center Y
+
+            catY += (targetY - catY) * speed; 
+            
+            // Update the cat's position relative to the viewport
+            pixelCatContainer.style.transform = `translate(${catX}px, ${catY - scrollY}px)`; 
+
+            requestAnimationFrame(animateCat);
+        }
+        animateCat();
+
+        // Star shower function
+        function showerStars() {
+            const numStars = 12;
+            const catRect = pixelCatContainer.getBoundingClientRect(); 
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('span');
+                star.textContent = '⭐'; 
+                star.className = 'star';
+                starShowerContainer.appendChild(star);
+
+                // Position stars to burst out from the center of the cat
+                star.style.left = `${catRect.left + catRect.width / 2}px`;
+                star.style.top = `${catRect.top + catRect.height / 2}px`;
+
+                // Remove star after animation
+                star.addEventListener('animationend', () => {
+                    star.remove();
+                });
+            }
+        }
+
+        // Trigger the star shower when the Projects section scrolls into view
+        window.addEventListener('scroll', () => {
+            if (projectsSection) {
+                const rect = projectsSection.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3;
+
+                if (isVisible && !starsTriggered) {
+                    showerStars();
+                    starsTriggered = true; 
+                } else if (!isVisible && starsTriggered) {
+                    starsTriggered = false; 
+                }
+            }
+        });
+
+    </script>
 </body>
-  </html>
+          </html>
   
