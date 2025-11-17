@@ -123,3 +123,12 @@ footer {
   padding: 1rem 0;
   margin-top: 2rem;
   }
+
+/* Styling for Facebook/Live Links (Optional color change) */
+.facebook-btn {
+    background: #4267B2; /* Facebook Blue */
+}
+
+.facebook-btn:hover {
+    background: #3b5998; /* Darker Facebook Blue on hover */
+}
